@@ -4,7 +4,7 @@ const Express = require("express")
 const CookieParser = require("cookie-parser")
 const fileUpload = require("express-fileupload")
 const morgan = require("morgan")
-
+const cors = require("cors")
 const app = Express()
 
 app.use(Express.json())
@@ -12,6 +12,7 @@ app.use(Express.urlencoded({ extended: true}))
 app.use(CookieParser())
 app.use(fileUpload())   
 app.use(morgan("tiny"))
+app.use(cors())
 
 const RoutesPath = Path.join(__dirname, "routes")
 Fs.readdir(RoutesPath, (err, files) => {
